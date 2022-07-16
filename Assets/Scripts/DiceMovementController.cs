@@ -133,7 +133,7 @@ namespace GameJam.DiceManager
         
         private Vector2 CalculateVelocity(Vector3 mousePos)
         {
-            if(transform.position.x< mousePos.x) { return throwSpeed; }
+            if (transform.position.x< mousePos.x) { return throwSpeed; }
             if (transform.position.y < mousePos.y) { return throwSpeed; }
             float x = Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(mousePos.x));
             float y = Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(mousePos.y));
