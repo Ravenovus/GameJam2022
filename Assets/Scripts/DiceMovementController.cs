@@ -24,7 +24,7 @@ namespace GameJam.DiceManager
         [SerializeField] Transform throwingHand;
         [SerializeField] int xSpeedFactor = 1;
         [SerializeField] int ySpeedFactor = 2;
-
+        [SerializeField] DiceType diceType;
 
         private float parabolaHeight;
         private bool hasMoved = false;
@@ -127,7 +127,7 @@ namespace GameJam.DiceManager
         private void ShowHand()
         {
             throwingHand.localScale = new Vector3(1, 1, 1);
-            throwingHand.rotation = Quaternion.Euler(0, 0, 60);
+            throwingHand.rotation = Quaternion.Euler(0, 0, -17);
         }
 
         
