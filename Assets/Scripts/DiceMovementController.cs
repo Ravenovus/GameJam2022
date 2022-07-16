@@ -17,8 +17,8 @@ namespace GameJam.DiceManager
 
         //Once switched to Tilecollider, create tag and have the object do an autosearch instead of manual insertion
         [SerializeField] BoxCollider2D groundCollider;
-        [SerializeField] LaunchArcRenderer launchArcRenderer;
-
+        [SerializeField] Transform target;
+        [SerializeField] LineController linePrefab;
         [SerializeField] bool hasTouchedGround = false;
         [SerializeField] bool hasFullyStopped = false;
         [SerializeField] Transform throwingHand;
@@ -27,6 +27,9 @@ namespace GameJam.DiceManager
 
 
         private float parabolaHeight;
+        private bool hasMoved = false;
+        private LineController newLine;
+        private Vector2 throwSpeed = new Vector2();
 
         void Awake()
         {
@@ -53,16 +56,16 @@ namespace GameJam.DiceManager
             {
                 return true;
             }
-            Debug.Log(diceRigidBody.velocity.ToString());
+            //Debug.Log(diceRigidBody.velocity.ToString());
             return false;
         }
 
         /*
-* Distance based angle/strength management
-* further you place your mouse from the die while holding down the button, the stronger
-* you shoot it/ harder angle
-* Implement strength limitations based on die type
-*/
+        * Distance based angle/strength management
+        * further you place your mouse from the die while holding down the button, the stronger
+        * you shoot it/ harder angle
+        * Implement strength limitations based on die type
+        */
         private void HandleThrow()
         {
             
@@ -73,19 +76,36 @@ namespace GameJam.DiceManager
             if(Input.GetMouseButtonDown(0) && hasTouchedGround)
             { 
                 ShowHand();
-                
+                newLine = Instantiate(linePrefab);
+                newLine.AssignTarget(transform.position, target);
 
             }
-            Vector2 throwSpeed = CalculateVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            launchArcRenderer.RenderArc(transform.position);
-            //Debug.Log("throwspeed after calculation: " + throwSpeed.ToString());
+            if (Input.GetMouseButton(0)) {
+                Vector2 newThrowSpeed = CalculateVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                if(throwSpeed != newThrowSpeed)
+                {
+                    hasMoved = true;
+                    throwSpeed = newThrowSpeed;
+                    //calculate angle etc here
+                }
+                if (hasMoved)
+                {
+                    target.localPosition = new Vector2(Mathf.Clamp(throwSpeed.x / xSpeedFactor, 0.1f, 3), Mathf.Clamp(throwSpeed.y / ySpeedFactor, 0.1f, 3));
+                    Debug.Log(target.localPosition);
+                    newLine.AssignTarget(transform.position, target);
+                    hasMoved = false;
+                    
+                }
+
+            }
             if (Input.GetMouseButtonUp(0) && hasTouchedGround)
             {
+                //throwSpeed = CalculateVelocity(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 //Debug.Log("throwspeed in button up: "+throwSpeed.ToString());
                 diceRigidBody.velocity = throwSpeed;
                 hasTouchedGround = false;
                 HideHand();
-               
+                newLine.SelfDestruction();
             }
         }
 
@@ -103,11 +123,6 @@ namespace GameJam.DiceManager
             throwingHand.localScale = new Vector3(0, 0, 0);
         }
 
-        //IMPORTANT//
-        /* Once actuall colliders are set for each model,
-         * Have the hand appear ONLY once velocity is at 0
-         * It will be possible when the collider is not a fucking circle
-         */
 
         private void ShowHand()
         {
@@ -115,24 +130,19 @@ namespace GameJam.DiceManager
             throwingHand.rotation = Quaternion.Euler(0, 0, 60);
         }
 
-        //Function to create the parabola, requires previous function to find start and end of it
-
-        //
-        
-        private void HandleParabolaCalculations()
-        {
-            Vector3 startingPosition = GetComponent<Transform>().position;
-
-
-        }
         
         private Vector2 CalculateVelocity(Vector3 mousePos)
         {
-            float x = Mathf.Abs(transform.position.x - mousePos.x);
-            float y = Mathf.Abs(transform.position.y - mousePos.y);
+            if(transform.position.x< mousePos.x) { return throwSpeed; }
+            if (transform.position.y < mousePos.y) { return throwSpeed; }
+            float x = Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(mousePos.x));
+            float y = Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(mousePos.y));
             Vector2 velocity = new Vector2(x * xSpeedFactor, y * ySpeedFactor);
+            //Debug.Log("actual Velocity: " + velocity);
             return velocity;
         }
+
+        
 
 
 

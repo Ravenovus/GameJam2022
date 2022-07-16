@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AimTargeting
+    uniqueID: 1024588803
+    locked: 0
   - name: Player
     uniqueID: 3028966087
     locked: 0
