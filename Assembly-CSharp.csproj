@@ -58,8 +58,16 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LineController.cs" />
     <Compile Include="Assets\Scripts\DiceMovementController.cs" />
-    <Compile Include="Assets\Scripts\DiceTypes.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\DiceTypes.cs" />
+    <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\CheckpointController.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\DiceHealth.cs" />
+    <Compile Include="Assets\Scripts\DiceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

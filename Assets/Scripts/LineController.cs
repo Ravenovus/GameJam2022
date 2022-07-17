@@ -18,15 +18,7 @@ public class LineController : MonoBehaviour
 
     private void Update()
     {
-        //float width = lineRenderer.startWidth;
-        //lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
-        //if (!finishedSetUp)
-        //{
-        //    lineRenderer.SetPosition(lineRenderer.positionCount - 1, target.position);
-        //    Vector3 start = lineRenderer.GetPosition(0);
-            
-        //}
-        //finishedSetUp = true;
+
     }
 
     public void AssignTarget(Vector3 startPosition, Transform newTarget)

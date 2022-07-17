@@ -25,6 +25,7 @@ namespace GameJam.DiceManager
         [SerializeField] int xSpeedFactor = 1;
         [SerializeField] int ySpeedFactor = 2;
         [SerializeField] DiceType diceType;
+        
 
         private float parabolaHeight;
         private bool hasMoved = false;
@@ -44,15 +45,18 @@ namespace GameJam.DiceManager
 
         void Update()
         {
-            hasFullyStopped = CheckForVelocity();
+            hasFullyStopped = CheckForMagnitude();
             HandleThrow();
 
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                DiceHealth.instance.breakDie();
+            }
         }
 
-        private bool CheckForVelocity()
+        private bool CheckForMagnitude()
         {
-            Vector2 checker = new Vector2(0, 0);
-            if (diceRigidBody.velocity.normalized.Equals(checker.normalized)) 
+            if (diceRigidBody.velocity.normalized.magnitude <=0.1) 
             {
                 return true;
             }
@@ -72,12 +76,13 @@ namespace GameJam.DiceManager
 
             if (!hasTouchedGround) { return; }
             if (!hasFullyStopped) { return; }
-
-            if(Input.GetMouseButtonDown(0) && hasTouchedGround && diceRigidBody.velocity.magnitude < 0.1)
-            { 
-                ShowHand();
+            
+            if(Input.GetMouseButtonDown(0) && hasTouchedGround)
+            {
                 newLine = Instantiate(linePrefab);
                 newLine.AssignTarget(transform.position, target);
+                ShowHand();
+                
 
             }
             if (Input.GetMouseButton(0)) {
@@ -86,12 +91,11 @@ namespace GameJam.DiceManager
                 {
                     hasMoved = true;
                     throwSpeed = newThrowSpeed;
-                    //calculate angle etc here
                 }
                 if (hasMoved)
                 {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
                     target.localPosition = new Vector2(Mathf.Clamp(throwSpeed.x / xSpeedFactor, 0.1f, 3), Mathf.Clamp(throwSpeed.y / ySpeedFactor, 0.1f, 3));
-                    Debug.Log(target.localPosition);
                     newLine.AssignTarget(transform.position, target);
                     hasMoved = false;
                     
@@ -112,12 +116,23 @@ namespace GameJam.DiceManager
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (collision.gameObject.tag == "DeathPit")
+            {
+                Debug.Log("Has Entered the Pit");
+                DiceHealth.instance.breakDie();
+                //add function from the UI element
+                //Add an ienumerable for the respawn thing
+            }
             if (collision.gameObject.tag == "Ground")
             {
                 AudioManager.audioManager.PlaySFX(UnityEngine.Random.Range(0, 14));
-                hasTouchedGround = true;                
-            }
+                hasTouchedGround = true;
+                return;
+            }        
+
         }
+       
+
 
         private void HideHand()
         {
@@ -128,7 +143,7 @@ namespace GameJam.DiceManager
         private void ShowHand()
         {
             throwingHand.localScale = new Vector3(1, 1, 1);
-            throwingHand.rotation = Quaternion.Euler(0, 0, -17);
+            throwingHand.localRotation = Quaternion.Euler(0, 0, -17);
         }
 
         
@@ -136,8 +151,8 @@ namespace GameJam.DiceManager
         {
             if (transform.position.x< mousePos.x) { return throwSpeed; }
             if (transform.position.y < mousePos.y) { return throwSpeed; }
-            float x = Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(mousePos.x));
-            float y = Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(mousePos.y));
+            float x = Mathf.Clamp(Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(mousePos.x)),1,5);
+            float y = Mathf.Clamp(Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(mousePos.y)),1,5);
             Vector2 velocity = new Vector2(x * xSpeedFactor, y * ySpeedFactor);
             //Debug.Log("actual Velocity: " + velocity);
             return velocity;
