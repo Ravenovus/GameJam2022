@@ -1451,7 +1451,7 @@ TextureImporter:
       name: Level Spritemap_64
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 32
         width: 16
         height: 16
@@ -1472,7 +1472,7 @@ TextureImporter:
       name: Level Spritemap_65
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -1493,7 +1493,7 @@ TextureImporter:
       name: Level Spritemap_66
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -1514,7 +1514,7 @@ TextureImporter:
       name: Level Spritemap_67
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -1535,8 +1535,8 @@ TextureImporter:
       name: Level Spritemap_68
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1556,7 +1556,7 @@ TextureImporter:
       name: Level Spritemap_69
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 16
         width: 16
         height: 16
@@ -1577,7 +1577,7 @@ TextureImporter:
       name: Level Spritemap_70
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -1598,7 +1598,7 @@ TextureImporter:
       name: Level Spritemap_71
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 16
         width: 16
         height: 16
@@ -1619,7 +1619,7 @@ TextureImporter:
       name: Level Spritemap_72
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 16
         width: 16
         height: 16
@@ -1640,7 +1640,7 @@ TextureImporter:
       name: Level Spritemap_73
       rect:
         serializedVersion: 2
-        x: 112
+        x: 96
         y: 16
         width: 16
         height: 16
@@ -1661,8 +1661,8 @@ TextureImporter:
       name: Level Spritemap_74
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1682,7 +1682,7 @@ TextureImporter:
       name: Level Spritemap_75
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -1703,7 +1703,7 @@ TextureImporter:
       name: Level Spritemap_76
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -1724,7 +1724,7 @@ TextureImporter:
       name: Level Spritemap_77
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -1745,7 +1745,7 @@ TextureImporter:
       name: Level Spritemap_78
       rect:
         serializedVersion: 2
-        x: 96
+        x: 80
         y: 0
         width: 16
         height: 16
@@ -1766,7 +1766,7 @@ TextureImporter:
       name: Level Spritemap_79
       rect:
         serializedVersion: 2
-        x: 112
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -1779,6 +1779,27 @@ TextureImporter:
       bones: []
       spriteID: 3bfc19c770768374da2929e04f4c5f40
       internalID: -1225061203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level Spritemap_80
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8778dd6bd2cffa24091ebee901ac42f3
+      internalID: 24071613
       vertices: []
       indices: 
       edges: []
@@ -1833,6 +1854,7 @@ TextureImporter:
       Level Spritemap_45: 1247257598
       Level Spritemap_9: 1169846958
       Level Spritemap_53: -776147662
+      Level Spritemap_80: 24071613
       Level Spritemap_24: -827664358
       Level Spritemap_72: 2031063261
       Level Spritemap_56: 297096573
