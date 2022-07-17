@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitToRespawn: 1.5
-  LevelToLoad: 
+  LevelToLoad: 0
 --- !u!1 &4156301780982060394
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +149,134 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6668717398048169321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8080687795128909119}
+  - component: {fileID: 4438248090469177937}
+  m_Layer: 0
+  m_Name: GameJamBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8080687795128909119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668717398048169321}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.900577, y: -11.000183, z: -1.0894476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2669189410834715264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4438248090469177937
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668717398048169321}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8473890738094286339, guid: f8feb38db38beaf4797e93b07629e40e, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0207fd69a18d76f4b8cbfd167802cfa9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.668
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1940805793314887669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 4789571634212887632}
     - target: {fileID: 8419050568683059096, guid: bf4730d855db12a4b861524a20270510, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7788461
+      value: 1.7783934
       objectReference: {fileID: 0}
     - target: {fileID: 8419050568683059096, guid: bf4730d855db12a4b861524a20270510, type: 3}
       propertyPath: m_Lens.OrthographicSize
@@ -424,6 +552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4604364606142819646, guid: 4743f3930f72f8145aded6f36cd33f9b, type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 4438248090469177937}
     - target: {fileID: 4604364606142819647, guid: 4743f3930f72f8145aded6f36cd33f9b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -470,6 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4743f3930f72f8145aded6f36cd33f9b, type: 3}
+--- !u!4 &2669189410834715264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4604364605421301753, guid: 4743f3930f72f8145aded6f36cd33f9b, type: 3}
+  m_PrefabInstance: {fileID: 1940805794069822841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2669189412193767494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4604364606142819647, guid: 4743f3930f72f8145aded6f36cd33f9b, type: 3}

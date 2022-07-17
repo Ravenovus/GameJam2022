@@ -16,6 +16,7 @@ namespace GameJam.DiceManager {
         private void Awake()
         {
             instance = this;
+            currentdie = DiceType.D20;
         }
 
 
