@@ -209,7 +209,7 @@ MonoBehaviour:
   hasFullyStopped: 0
   throwingHand: {fileID: 3017348268874370600}
   xSpeedFactor: 2
-  ySpeedFactor: 4
+  ySpeedFactor: 2
   diceType: 0
 --- !u!1001 &4353092034157479913
 PrefabInstance:
@@ -218,6 +218,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8685262276729934927}
     m_Modifications:
+    - target: {fileID: 1564592297309342144, guid: 1a6dd839aa77fbc4c832cae8b4a7add5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564592297309342144, guid: 1a6dd839aa77fbc4c832cae8b4a7add5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1266001209
+      objectReference: {fileID: 0}
     - target: {fileID: 1564592297309342145, guid: 1a6dd839aa77fbc4c832cae8b4a7add5, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1616616051, guid: 8698f0b5a3d760c4b9bdeaa3e2b13a31, type: 3}
+      propertyPath: diceType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8685262276729934912, guid: 8698f0b5a3d760c4b9bdeaa3e2b13a31, type: 3}
       propertyPath: m_Controller
       value: 
