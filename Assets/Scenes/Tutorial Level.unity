@@ -3536,11 +3536,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073782004075530615, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4156301780982060394, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
       propertyPath: m_Name
       value: LevelPack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680783175496952146, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680783175982636500, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680783176124339594, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680783176777135179, guid: 8fc59659c2a6cec44a5137818a9ee949, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -3570,7 +3582,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3132171601408647510, guid: 193f4bf729464744a95da946ceff8306, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3132171601408647510, guid: 193f4bf729464744a95da946ceff8306, type: 3}
       propertyPath: m_LocalPosition.x
