@@ -16,10 +16,7 @@ public class LineController : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    private void Update()
-    {
 
-    }
 
     public void AssignTarget(Vector3 startPosition, Transform newTarget)
     {
