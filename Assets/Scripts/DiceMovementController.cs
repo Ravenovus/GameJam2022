@@ -73,7 +73,7 @@ namespace GameJam.DiceManager
             if (!hasTouchedGround) { return; }
             if (!hasFullyStopped) { return; }
 
-            if(Input.GetMouseButtonDown(0) && hasTouchedGround)
+            if(Input.GetMouseButtonDown(0) && hasTouchedGround && diceRigidBody.velocity.magnitude < 0.1)
             { 
                 ShowHand();
                 newLine = Instantiate(linePrefab);
@@ -114,6 +114,7 @@ namespace GameJam.DiceManager
         {
             if (collision.gameObject.tag == "Ground")
             {
+                AudioManager.audioManager.PlaySFX(UnityEngine.Random.Range(0, 14));
                 hasTouchedGround = true;                
             }
         }
