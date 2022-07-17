@@ -6,6 +6,7 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     [SerializeField] Vector3 spawnPoint;
+    [SerializeField] Vector3 originalSpawn;
 
     public static CheckpointController instance;
 
@@ -17,6 +18,7 @@ public class CheckpointController : MonoBehaviour
     private void Start()
     {
         spawnPoint = DiceManager.instance.transform.position;
+        originalSpawn = spawnPoint;
     }
 
     public void SetSpawnPoint(Vector3 newSpawnPoint)
@@ -27,5 +29,10 @@ public class CheckpointController : MonoBehaviour
     public Vector3 GetSpawnPoint()
     {
         return spawnPoint;
+    }
+
+    public void ResetSpawn()
+    {
+        spawnPoint = originalSpawn;
     }
 }

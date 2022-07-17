@@ -25,9 +25,9 @@ namespace GameJam.DiceManager
         [SerializeField] int xSpeedFactor = 1;
         [SerializeField] int ySpeedFactor = 2;
         [SerializeField] DiceType diceType;
-        
 
-        private float parabolaHeight;
+
+        private bool stopInput = false;
         private bool hasMoved = false;
         private LineController newLine;
         private Vector2 throwSpeed = new Vector2();
@@ -39,6 +39,7 @@ namespace GameJam.DiceManager
 
         private void Start()
         {
+            stopInput = true;
             HideHand();
         }
 
@@ -46,12 +47,15 @@ namespace GameJam.DiceManager
         void Update()
         {
             hasFullyStopped = CheckForMagnitude();
+
             HandleThrow();
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                DiceHealth.instance.breakDie();
-            }
+
+            //Manual Testing of deaths
+            //if (Input.GetKeyDown(KeyCode.Q))
+            //{
+            //    DiceHealth.instance.breakDie();
+            //}
         }
 
         private bool CheckForMagnitude()
@@ -64,16 +68,11 @@ namespace GameJam.DiceManager
             return false;
         }
 
-        /*
-        * Distance based angle/strength management
-        * further you place your mouse from the die while holding down the button, the stronger
-        * you shoot it/ harder angle
-        * Implement strength limitations based on die type
-        */
+
         private void HandleThrow()
         {
-            
 
+            if (stopInput) { return; }
             if (!hasTouchedGround) { return; }
             if (!hasFullyStopped) { return; }
             
@@ -158,7 +157,10 @@ namespace GameJam.DiceManager
             return velocity;
         }
 
-        
+        public void DisableInput()
+        {
+            stopInput = true;
+        }
 
 
 

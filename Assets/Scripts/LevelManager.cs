@@ -1,7 +1,9 @@
 using GameJam.DiceManager;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -32,14 +34,23 @@ public class LevelManager : MonoBehaviour
         UIController.instance.FadeToBlack();
         yield return new WaitForSeconds((1f / UIController.instance.fade_speed) + .2f);
         UIController.instance.FadeFromBlack();
-
-
-
         UIController.instance.UpdateHealthDisplay();
-
         DiceManager.instance.gameObject.SetActive(true);
 
     }
 
+    public void EndLevel()
+    {
+        StartCoroutine(EndLevelCoRoutine());
+    }
 
+    private IEnumerator EndLevelCoRoutine()
+    {
+        DiceManager.instance.DisableInput();
+        //Add "Level Complete" Text to the UI
+        yield return new WaitForSeconds(1.5f);
+        UIController.instance.FadeToBlack();
+        yield return new WaitForSeconds((1f / UIController.instance.fade_speed) + .25f);        
+        SceneManager.LoadScene(LevelToLoad);
+    }
 }
