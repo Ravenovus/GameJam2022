@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8685262276729934912}
   - component: {fileID: 1616616051}
   m_Layer: 0
-  m_Name: Player Dice D4
+  m_Name: Player Dice
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebcf4d20e84f454186aaf2f150fb125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceRigidBody: {fileID: 0}
-  diceCollider: {fileID: 0}
+  diceRigidBody: {fileID: 8685262276729934913}
+  diceCollider: {fileID: 8685262276729934926}
   groundCollider: {fileID: 0}
   target: {fileID: 410024136}
   linePrefab: {fileID: -4054981888077311880, guid: c2e0a866e083b994e8b59ae841d759a5, type: 3}
@@ -210,6 +210,7 @@ MonoBehaviour:
   throwingHand: {fileID: 3017348268874370600}
   xSpeedFactor: 2
   ySpeedFactor: 4
+  diceType: 0
 --- !u!1001 &4353092034157479913
 PrefabInstance:
   m_ObjectHideFlags: 0
