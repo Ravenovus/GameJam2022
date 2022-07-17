@@ -25,12 +25,23 @@ namespace GameJam.DiceManager {
             lives--;
             if(lives <= 0)
             {
-                //restartlevel
+                Restart();
+                return;
             }
             currentdie = GetNextLivingDie();
             DiceManager.instance.SwitchToNext(currentdie);
             LevelManager.instance.RespawnPlayer();
             
+        }
+
+        private void Restart()
+        {
+            currentdie = DiceType.D20;
+            CheckpointController.instance.ResetSpawn();
+            LevelManager.instance.RespawnPlayer();
+            lives = 4;
+            DiceManager.instance.ResetDM();
+            UIController.instance.ResetUI();
         }
 
         public DiceType GetNextLivingDie()
@@ -44,7 +55,7 @@ namespace GameJam.DiceManager {
                 case (DiceType.D6):
                     return DiceType.D4;
                 default:
-                    return DiceType.D4;
+                    return DiceType.D20;
 
             }
         }

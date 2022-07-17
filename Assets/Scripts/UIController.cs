@@ -1,11 +1,13 @@
 using GameJam.DiceManager;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI victoryText;
     public static UIController instance;
     public Image D4, D6, D8, D20;
     public Image D4C, D6C, D8C, D20C;
@@ -13,6 +15,7 @@ public class UIController : MonoBehaviour
     public Image fadeScreen;
     public float fade_speed;
     private bool shouldFadeToBlack, shouldFadeFromBlack;
+    
 
     private void Awake()
     {
@@ -67,6 +70,17 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ResetUI()
+    {
+        D6.gameObject.SetActive(true);
+        D8.gameObject.SetActive(true);
+        D20.gameObject.SetActive(true);
+        D20C.gameObject.SetActive(true);
+        D8C.gameObject.SetActive(false);
+        D6C.gameObject.SetActive(false);
+        D4C.gameObject.SetActive(false);
+    }
+
     public void FadeToBlack()
     {
         shouldFadeToBlack = true;
@@ -76,5 +90,10 @@ public class UIController : MonoBehaviour
     {
         shouldFadeFromBlack = true;
         shouldFadeToBlack = false;
+    }
+
+    public void SetVictoryTextOn()
+    {
+        victoryText.gameObject.SetActive(true);
     }
 }

@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] float waitToRespawn = 1.5f;
     public static LevelManager instance;
-    public string LevelToLoad;
+    public int LevelToLoad;
 
 
 
@@ -41,16 +41,21 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        Debug.Log("outsidetheco");
         StartCoroutine(EndLevelCoRoutine());
     }
 
-    private IEnumerator EndLevelCoRoutine()
+    public IEnumerator EndLevelCoRoutine()
     {
-        DiceManager.instance.DisableInput();
-        //Add "Level Complete" Text to the UI
+
+        
+        //DiceManager.instance.DisableInput();
+
+        UIController.instance.SetVictoryTextOn();
         yield return new WaitForSeconds(1.5f);
         UIController.instance.FadeToBlack();
-        yield return new WaitForSeconds((1f / UIController.instance.fade_speed) + .25f);        
-        SceneManager.LoadScene(LevelToLoad);
+        yield return new WaitForSeconds(2f);       
+        
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1)%3);
     }
 }

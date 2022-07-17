@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2492267657619088019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24588a2369878a344bd16b2a9490d1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victoryText: {fileID: 8851189147190233169}
   D4: {fileID: 6492602872307862419}
   D6: {fileID: 6492602871922547993}
   D8: {fileID: 6492602872171665119}
