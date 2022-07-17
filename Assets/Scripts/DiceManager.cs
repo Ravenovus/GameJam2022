@@ -48,10 +48,21 @@ namespace GameJam.DiceManager {
             
         }
 
-        public void DisableInput()
+        public void ResetDM()
         {
-            currentActive.DisableInput();
+            D4.gameObject.SetActive(false);
+            D6.gameObject.SetActive(false);
+            D8.gameObject.SetActive(false);
+            D20.transform.position = CheckpointController.instance.GetSpawnPoint();
+            D20.gameObject.SetActive(true);
+            currentActive = D20;
+            cam.Follow = D20.gameObject.transform;
         }
+
+        //public void DisableInput()
+        //{
+        //    currentActive.DisableInput();
+        //}
 
         
 

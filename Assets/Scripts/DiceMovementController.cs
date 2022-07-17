@@ -39,7 +39,7 @@ namespace GameJam.DiceManager
 
         private void Start()
         {
-            stopInput = true;
+            stopInput = false;
             HideHand();
         }
 
@@ -52,10 +52,15 @@ namespace GameJam.DiceManager
 
 
             //Manual Testing of deaths
-            //if (Input.GetKeyDown(KeyCode.Q))
-            //{
-            //    DiceHealth.instance.breakDie();
-            //}
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                DiceHealth.instance.breakDie();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LevelManager.instance.EndLevel();
+            }
         }
 
         private bool CheckForMagnitude()
@@ -127,7 +132,11 @@ namespace GameJam.DiceManager
                 AudioManager.audioManager.PlaySFX(UnityEngine.Random.Range(0, 14));
                 hasTouchedGround = true;
                 return;
-            }        
+            }      
+            if(collision.gameObject.tag == "EndPoint")
+            {
+                LevelManager.instance.EndLevel();
+            }
 
         }
        
