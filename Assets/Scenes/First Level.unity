@@ -252,6 +252,7 @@ PrefabInstance:
     - target: {fileID: 5227886179350776327, guid: 83be4890eafd8184fbc32ac46452a237, type: 3}
       propertyPath: m_RootOrder
       value: 0
+
       objectReference: {fileID: 0}
     - target: {fileID: 5227886179350776327, guid: 83be4890eafd8184fbc32ac46452a237, type: 3}
       propertyPath: m_LocalPosition.x
@@ -425,7 +426,7 @@ Transform:
   m_Children:
   - {fileID: 1681845553}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1577006737
 TilemapCollider2D:
