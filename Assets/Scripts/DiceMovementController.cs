@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameJam.DiceManager
 {
@@ -60,6 +61,11 @@ namespace GameJam.DiceManager
             if (Input.GetKeyDown(KeyCode.E))
             {
                 LevelManager.instance.EndLevel();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(0);
             }
         }
 
