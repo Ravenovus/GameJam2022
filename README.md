@@ -5,6 +5,7 @@ https://magnethead.itch.io/raddah-gmtk-gamejam-2022
 
 # Credits
 Lead Developer - Ravenovus
+
 Lead Artist - Magnethead
 
 # A little about the game
